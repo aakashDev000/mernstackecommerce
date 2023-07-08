@@ -2,8 +2,10 @@ import { Suspense } from "react";
 import LoadingDialog from "../LoadingDialog";
 import logo from "../../imgutils/logo.jpg";
 import SearchBar from "./SearchBar";
+import { useNavigate } from "react-router-dom";
 
 const RowTwoNav = () => {
+  const goto = useNavigate();
   return (
     <Suspense fallback={<LoadingDialog />}>
       <div className="mt-5 pt-3 pl-20 flex">
@@ -84,9 +86,10 @@ const RowTwoNav = () => {
         <div className="pl-20 items-center flex">
           <button
             type="button"
-            className="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-300 font-medium rounded-lg text-sm px-7 py-2.5 text-center mr-2 mb-2"
+            onClick={() => goto("/signup")}
+            className="text-white cursor-pointer bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-300 font-medium rounded-lg text-sm px-7 py-2.5 text-center mr-2 mb-2"
           >
-            Classifields
+            Sign Up
           </button>
         </div>
       </div>

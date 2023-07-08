@@ -1,9 +1,10 @@
-import { Suspense } from "react";
-import LoadingDialog from "../common/LoadingDialog";
+import { Suspense, lazy } from "react";
 import CommonNavbar from "../common/nav/CommonNavbar";
-import SwiperImage from "./SwiperImage";
-import ProductViewList from "./products/ProductViewList";
 import Footer from "../footer/Footer";
+
+const SwiperImage = lazy(() => import("./SwiperImage"));
+const ProductViewList = lazy(() => import("./products/ProductViewList"));
+const LoadingDialog = lazy(() => import("../common/LoadingDialog"));
 
 const Home = () => {
   return (

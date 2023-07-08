@@ -9,9 +9,11 @@ const CommonTopnavbar = () => {
     <Suspense fallback={<LoadingDialog />}>
       <RowOneNav />
 
-      <RowTwoNav />
+      <div className="sticky top-0 z-10 bg-white">
+        <RowTwoNav />
 
-      <RowThreeNav />
+        <RowThreeNav />
+      </div>
     </Suspense>
   );
 };

@@ -14,7 +14,7 @@ const RowThreeNav = () => {
   ];
   return (
     <>
-      <div className="flex text-gray-700 mt-3 pl-28 h-8 space-x-6 text-xs">
+      <div className="flex text-gray-700 mt-3 pl-28  space-x-6 text-xs">
         <div className="flex items-center">
           <select
             id="countries"

@@ -6,11 +6,11 @@ import SearchBar from "./SearchBar";
 const RowTwoNav = () => {
   return (
     <Suspense fallback={<LoadingDialog />}>
-      <div className="mt-7 pl-20 flex">
+      <div className="mt-5 pt-3 pl-20 flex">
         <div className="pl-12 mt-1">
           <img src={logo} alt="Logo" className="w-9" />
         </div>
-        <div className="items-center flex text-slate-600 pl-1 font-semibold">
+        <div className="items-center flex text-slate-600 pl-1 font-bold">
           LILACCART
         </div>
         <div className="pl-20 flex items-center">

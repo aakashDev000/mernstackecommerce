@@ -5,10 +5,8 @@ import LoadingDialog from "../LoadingDialog";
 const CommonNavbar = ({ children }: { children: any }) => {
   return (
     <Suspense fallback={<LoadingDialog />}>
-      <div className="sticky top-0 z-10 bg-white">
-        <CommonTopnavbar />
-      </div>
-      <div className="bg-slate-50">{children}</div>
+      <CommonTopnavbar />
+      <div className="bg-slate-100">{children}</div>
     </Suspense>
   );
 };

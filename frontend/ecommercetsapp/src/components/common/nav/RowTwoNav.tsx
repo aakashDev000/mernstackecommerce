@@ -67,7 +67,10 @@ const RowTwoNav = () => {
         </div>
 
         {/* Cart */}
-        <div className="pl-9 items-center flex cursor-pointer">
+        <div
+          className="pl-9 items-center flex cursor-pointer"
+          onClick={cartOpen}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -75,7 +78,6 @@ const RowTwoNav = () => {
             stroke-width="1.5"
             stroke="currentColor"
             className="w-6 h-6 hover:text-blue-500"
-            onClick={cartOpen}
           >
             <path
               stroke-linecap="round"

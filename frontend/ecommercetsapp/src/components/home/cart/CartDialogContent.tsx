@@ -39,7 +39,7 @@ const CartDialogContent = ({ cartClose }: { cartClose: any }) => {
         ) : (
           <div className="text-gray-500 font-semibold pt-40 pl-20 font-serif text-xl">
             {" "}
-            Your Cart is Empty 😞
+            Your Cart is Empty 🛒
           </div>
         )}
       </div>

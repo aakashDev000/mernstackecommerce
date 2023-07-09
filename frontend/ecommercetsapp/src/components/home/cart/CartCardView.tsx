@@ -26,7 +26,7 @@ const CartCardView = ({
         <img className="p-4 rounded-t-lg w-44 h-24" src={img} alt="product" />
         <div className="flex pl-4 mb-2">
           <div
-            className="border border-gray-400 pl-2 pr-2 cursor-pointer"
+            className="border border-gray-400 pl-2 pr-2 rounded cursor-pointer"
             onClick={() => deleteItem(id, index)}
           >
             <svg
@@ -42,11 +42,11 @@ const CartCardView = ({
               />
             </svg>
           </div>
-          <div className="border border-gray-400 pl-3 pr-3 text-lg pt-1">
+          <div className="border border-gray-400 pl-3 font-semibold pr-3 rounded text-lg pt-1">
             {count}
           </div>
           <div
-            className="border border-gray-400 pr-2 pl-2 cursor-pointer"
+            className="border border-gray-400 pr-2 pl-2 rounded cursor-pointer"
             onClick={() => addItem(id, index)}
           >
             <svg

@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 // import { signuprequest } from "../service/action";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { signuprequest } from "./store/action";
+import { useAuthStore } from "./store/useAuthStore";
 
 const Signup = () => {
   const [adminDetails, setAdminDetails] = useState({
@@ -20,28 +22,28 @@ const Signup = () => {
 
   const goto = useNavigate();
 
-  const token = localStorage.getItem("authtoken");
+  const { authtoken } = useAuthStore();
 
   useEffect(() => {
-    if (token) {
+    if (authtoken) {
       goto("/home");
     }
-  }, [goto, token]);
+  }, [goto, authtoken]);
 
   const signup = () => {
     const { email, password, username } = adminDetails;
     if (!email || !password || !username) {
       toast.error("Please fill the all details");
     } else {
-      // signuprequest({ data: adminDetails })
-      //   .then((res) => {
-      //     toast.success("Signup Successfully");
-      //     goto("/signin");
-      //   })
-      //   .catch((err) => {
-      //     console.log("err", err);
-      //     toast.error(err.data.data);
-      //   });
+      signuprequest({ data: adminDetails })
+        .then((res) => {
+          toast.success("Signup Successfully");
+          goto("/signin");
+        })
+        .catch((err) => {
+          console.log("err", err);
+          toast.error(err?.data?.data || "Error Occured");
+        });
     }
   };
 
@@ -115,6 +117,17 @@ const Signup = () => {
             className="font-medium text-blue-500 hover:underline"
           >
             Signin
+          </Link>
+        </p>
+
+        <p className="mt-8 text-xs font-light text-center text-gray-700">
+          {" "}
+          Back to home{" "}
+          <Link
+            to={`/home`}
+            className="font-medium text-blue-500 hover:underline"
+          >
+            Home
           </Link>
         </p>
       </div>

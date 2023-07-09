@@ -1,5 +1,10 @@
-import { ecommercSubscription } from "./store";
-import { ADD_ITEM_CART, ADD_ITEM_THROUGH_CART, DELETE_ITEM_CART } from "./type";
+import { ecommercSubscription, ecommerceStoreInitialState } from "./store";
+import {
+  ADD_ITEM_CART,
+  ADD_ITEM_THROUGH_CART,
+  DELETE_ITEM_CART,
+  SET_INITIAL_STATE,
+} from "./type";
 
 const totalSum = (cartList: Array<any>) => {
   return cartList.map((item: any) => {
@@ -146,6 +151,10 @@ const ecommerceDispatch = (
       const calculateCartList = totalSum(cartItemList);
 
       return { ...state, sellingItemList, cartItemList: calculateCartList };
+    }
+
+    case SET_INITIAL_STATE: {
+      return ecommerceStoreInitialState;
     }
 
     default: {

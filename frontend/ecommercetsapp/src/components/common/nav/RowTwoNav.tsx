@@ -5,9 +5,15 @@ import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
 import Cart from "../../home/cart/Cart";
 import { useEcommerceStore } from "../../store/useEcommerceStore";
+import { useAuthStore } from "../../authentication/store/useAuthStore";
+import { signoutrequest } from "../../authentication/store/action";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const RowTwoNav = () => {
   const goto = useNavigate();
+
+  const { authtoken } = useAuthStore();
 
   const { cartItemList } = useEcommerceStore();
 
@@ -20,15 +26,41 @@ const RowTwoNav = () => {
   const cartClose = () => {
     setCartState(false);
   };
+
+  const signOut = () => {
+    signoutrequest()
+      .then(() => {
+        goto("/signin");
+      })
+      .catch((err) =>
+        console.log((err: any) => {
+          console.log("err", err);
+        })
+      );
+  };
+
+  const accountDetails = () => {
+    if (authtoken) {
+      goto("/account");
+    } else {
+      toast.error("Please Signin first");
+    }
+  };
   return (
     <Suspense fallback={<LoadingDialog />}>
       {/* Cart */}
       {cartState && <Cart cartClose={cartClose} />}
       <div className="mt-5 pt-3 pl-20 flex">
-        <div className="pl-12 mt-1">
+        <div
+          className="pl-12 mt-1 cursor-pointer"
+          onClick={() => goto("/home")}
+        >
           <img src={logo} alt="Logo" className="w-9" />
         </div>
-        <div className="items-center flex text-slate-600 pl-1 font-bold">
+        <div
+          className="items-center cursor-pointer flex text-slate-600 pl-1 font-bold"
+          onClick={() => goto("/home")}
+        >
           LILACCART
         </div>
         <div className="pl-20 flex items-center cursor-pointer">
@@ -91,7 +123,10 @@ const RowTwoNav = () => {
         </div>
 
         {/* User */}
-        <div className="pl-8 items-center flex cursor-pointer ">
+        <div
+          className="pl-8 items-center flex cursor-pointer "
+          onClick={accountDetails}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -109,15 +144,26 @@ const RowTwoNav = () => {
         </div>
 
         <div className="pl-20 items-center flex">
-          <button
-            type="button"
-            onClick={() => goto("/signup")}
-            className="text-white cursor-pointer bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-300 font-medium rounded-lg text-sm px-7 py-2.5 text-center mr-2 mb-2"
-          >
-            Sign Up
-          </button>
+          {!authtoken ? (
+            <button
+              type="button"
+              onClick={() => goto("/signin")}
+              className="text-white cursor-pointer bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-300 font-medium rounded-lg text-sm px-7 py-2.5 text-center mr-2 mb-2"
+            >
+              Sign In
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => signOut()}
+              className="text-white cursor-pointer bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-300 font-medium rounded-lg text-sm px-7 py-2.5 text-center mr-2 mb-2"
+            >
+              Sign Out
+            </button>
+          )}
         </div>
       </div>
+      <ToastContainer />
     </Suspense>
   );
 };

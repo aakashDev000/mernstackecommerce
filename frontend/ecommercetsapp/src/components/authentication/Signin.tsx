@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import { signinrequest } from "../service/action";
+import { signinrequest } from "./store/action";
+import { useAuthStore } from "./store/useAuthStore";
 
 const Signin = () => {
   const [adminDetails, setAdminDetails] = useState({
@@ -19,13 +20,13 @@ const Signin = () => {
 
   const goto = useNavigate();
 
-  const token = localStorage.getItem("authtoken");
+  const { authtoken } = useAuthStore();
 
   useEffect(() => {
-    if (token) {
+    if (authtoken) {
       goto("/home");
     }
-  }, [goto, token]);
+  }, [goto, authtoken]);
 
   const signin = () => {
     const { email, password } = adminDetails;
@@ -37,16 +38,16 @@ const Signin = () => {
     }
 
     if (email && password) {
-      // signinrequest({ data: adminDetails })
-      //   .then((res) => {
-      //     goto("/home");
-      //   })
-      //   .catch((err) => {
-      //     console.log("err", err);
-      //     const { data = {} } = err;
-      //     const { data: message = "Error occured" } = data;
-      //     if (message) toast.error(message);
-      //   });
+      signinrequest({ data: adminDetails })
+        .then((res) => {
+          goto("/home");
+        })
+        .catch((err) => {
+          console.log("err", err);
+          const { data = {} } = err;
+          const { data: message = "Error occured" } = data;
+          if (message) toast.error(message);
+        });
     }
   };
   return (
@@ -86,9 +87,6 @@ const Signin = () => {
               className="block w-full px-4 py-2 mt-2 text-blue-500 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
-          {/* <a href="#" className="text-xs text-purple-600 hover:underline">
-            Forget Password?
-          </a> */}
           <div className="mt-6">
             <button
               onClick={signin}
@@ -107,6 +105,16 @@ const Signin = () => {
             className="font-medium text-blue-500 hover:underline"
           >
             Signup
+          </Link>
+        </p>
+        <p className="mt-8 text-xs font-light text-center text-gray-700">
+          {" "}
+          Back to home{" "}
+          <Link
+            to={`/home`}
+            className="font-medium text-blue-500 hover:underline"
+          >
+            Home
           </Link>
         </p>
       </div>

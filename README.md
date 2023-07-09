@@ -1,4 +1,4 @@
-# mernstackecommerce
+# Machine Test (Lilac Info Tech)
 
 ![plot](./appscrrenshots/sc1.png)
 ![plot](./appscrrenshots/sc2.png)

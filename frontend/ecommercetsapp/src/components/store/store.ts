@@ -24,7 +24,7 @@ export const ecommerceStoreInitialState = {
     },
     {
       img: img2,
-      name: "Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport",
+      name: "Apple Watch Ultra [GPS + Cellular 49 mm] Smart Watch",
       prize: `$${createRandomNumberWithParams(500)}`,
       count: createRandomNumber(),
       uniqId: uuid.v4(),
@@ -38,7 +38,7 @@ export const ecommerceStoreInitialState = {
     },
     {
       img: img4,
-      name: "Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport",
+      name: "Samsung Galaxy M14 5G (Berry Blue, 6GB, 128GB Storage) ",
       prize: `$${createRandomNumberWithParams(500)}`,
       count: createRandomNumber(),
       uniqId: uuid.v4(),

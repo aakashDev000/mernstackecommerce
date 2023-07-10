@@ -49,12 +49,12 @@ $ npm install
 
 ## Setup
 
-```
- Create .env file that include:
-  * Go to `/backend/ecommercetsapi/.env` file and given your mongourl
 
-  $ .env --> MONGO_URL = your_mongodb_url ("mongodb://127.0.0.1/localdev")
-```
+ - Create .env file that include:
+
+  - Go to `/backend/ecommercetsapi/.env` file and given your mongourl
+
+  - .env --> MONGO_URL = your_mongodb_url ("mongodb://127.0.0.1/localdev")
 
 ## Start Express Server
 

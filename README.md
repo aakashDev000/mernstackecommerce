@@ -2,18 +2,21 @@
 
 ## Description
 
+Ecommerce Task
+
 An ecommerce store built with MERN stack, and LOGIN and LOGOUT Products Add to the cart and Deletet the cart
 
 1. Buyers browse the store categories, products and brands
 
 - features:
+
   - It's Typescript based project
   - Node provides the backend environment for this application
   - Express middleware is used to handle requests, routes
   - Login Logout based on token method
   - This token is expired in 24 Hours
-  - Auth token set in browser local storage
-  - Design fully developed under Tailwind css and Some third party package
+  - Auth token stored in browser local storage
+  - Design fully developed under Tailwind css and Some third party packages
   - React for displaying UI components
   - Rxjs like(Redux) to manage application's state
   - Rxjs to handle asynchronous redux actions
@@ -83,8 +86,6 @@ $ npm install
 $ npm run start
 ```
 
-## Project Screen shots attached here
-
 ## Languages & tools
 
 - [Node](https://nodejs.org/en/)
@@ -96,6 +97,8 @@ $ npm run start
 - [MongoDb](https://www.mongodb.com/)
 
 - [React](https://reactjs.org/)
+
+## Project Completed Screen shots attached here
 
 ![plot](./appscrrenshots/sc1.png)
 ![plot](./appscrrenshots/sc2.png)

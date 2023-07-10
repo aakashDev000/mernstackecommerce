@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(router);
 
 app.get("/", (_: Request, res: Response) => {
-  res.send("Express + TypeScript Server");
+  res.send("Testing Server");
 });
 
 router.use("/api/v1", authRouter);

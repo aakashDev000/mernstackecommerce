@@ -35,7 +35,7 @@ An ecommerce store built with MERN stack, and LOGIN and LOGOUT Products Add to t
 Some basic Git commands are:
 
 ```
-$ git clone https://github.com/aakashDev000/mernstackecommerce/tree/main/backend/ecommercetsapi
+$ git clone https://github.com/aakashDev000/mernstackecommerce.git
 ```
 
 ## Install Backend Packages
